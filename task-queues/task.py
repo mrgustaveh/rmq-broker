@@ -12,7 +12,7 @@ message = " ".join(sys.argv[1:]) or "Task Queue Message.."
 channel.basic_publish(
     exchange="",
     routing_key="task_queue",
-    body="message",
+    body=message,
     properties=pika.BasicProperties(delivery_mode=pika.DeliveryMode.Persistent),
 )
 
